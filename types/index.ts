@@ -5,3 +5,11 @@ export interface ProjectType {
     link: string;
     upcoming: boolean | false;
 }
+
+export type EmailResponse = {
+    status: 'success';
+    message: string;
+} | {
+    status: 'error';
+    error: string;
+}

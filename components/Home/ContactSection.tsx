@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Card,
     CardContent,
@@ -14,10 +14,15 @@ import { User, Mail, MessageSquare, Send } from 'lucide-react';
 import { my_avatar, my_email } from '@/me/info.me';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
+import { EmailResponse } from '@/types';
 
 const ContactSection = () => {
-    const handleEmails = async (e: React.FormEvent<HTMLFormElement>) => {
+    const [isSending, setIsSending] = useState(false);
+    const handleEmails = async (
+        e: React.FormEvent<HTMLFormElement>
+    ) => {
         e.preventDefault();
+        setIsSending(true);
         const form = e.target as HTMLFormElement;
         let formData = new FormData(form);
         const name = formData.get('name');
@@ -36,11 +41,16 @@ const ContactSection = () => {
                     message,
                 }),
             });
-            toast.success(response?.message || 'Email sent successfully');
+            const data: EmailResponse = await response.json();
+            if (data.status === 'error') throw new Error(data.error);
+
+            toast.success(data?.message || 'Email sent successfully');
             form.reset();
         } catch (error) {
             console.error('Error sending email: ' + error);
             toast.error('Error sending email');
+        } finally {
+            setIsSending(false);
         }
     };
     return (
@@ -71,7 +81,10 @@ const ContactSection = () => {
                     </div>
                 </CardHeader>
                 <CardContent>
-                    <form className="space-y-6" onSubmit={handleEmails}>
+                    <form
+                        className="space-y-6"
+                        onSubmit={handleEmails}
+                    >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="relative">
                                 <User
@@ -79,7 +92,7 @@ const ContactSection = () => {
                                     size={18}
                                 />
                                 <Input
-                                    name='name'
+                                    name="name"
                                     placeholder="Name"
                                     className="bg-slate-800/50 border-slate-700 focus:border-purple-500 pl-10 transition-all duration-300 focus:ring-2 focus:ring-purple-500/20"
                                 />
@@ -90,7 +103,7 @@ const ContactSection = () => {
                                     size={18}
                                 />
                                 <Input
-                                    name='email'
+                                    name="email"
                                     type="email"
                                     placeholder="Email"
                                     className="bg-slate-800/50 border-slate-700 focus:border-purple-500 pl-10 transition-all duration-300 focus:ring-2 focus:ring-purple-500/20"
@@ -103,16 +116,21 @@ const ContactSection = () => {
                                 size={18}
                             />
                             <Textarea
-                                name='message'
+                                name="message"
                                 placeholder="Your message"
                                 className="min-h-[150px] bg-slate-800/50 border-slate-700 focus:border-purple-500 pl-10 transition-all duration-300 focus:ring-2 focus:ring-purple-500/20"
                             />
                         </div>
                         <Button
                             type="submit"
+                            disabled={isSending}
                             className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02] focus:scale-[0.98] flex items-center justify-center space-x-2"
                         >
-                            <span>Send Message</span>
+                            <span>
+                                {isSending
+                                    ? 'Sending'
+                                    : 'Send Message'}
+                            </span>
                             <Send size={18} />
                         </Button>
                     </form>

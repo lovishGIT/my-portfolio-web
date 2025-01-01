@@ -1,6 +1,6 @@
-import { ProjectType } from "@/types/project.type";
+import { ProjectType } from '@/types';
 import image from '@/me/myAvatar.png';
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export const my_avatar: StaticImageData = image;
 export const name: string = 'Lovish Bansal';
@@ -49,7 +49,7 @@ export const projects: ProjectType[] = [
             'PostgreSQL',
         ],
         link: 'https://ieee-website-six.vercel.app',
-        upcoming: false
+        upcoming: false,
     },
     {
         title: 'White Nest (E-Commerce)',
@@ -126,14 +126,14 @@ export const skills = {
         'GraphQL',
         'Clerk',
         'TanStack',
-        'Prisma (ORM)'
+        'Prisma (ORM)',
     ],
-    'Databases': [
+    Databases: [
         'MongoDB',
         'PostgreSQL',
         'Firebase',
         'Suprabase',
-        'Neon DB'
+        'Neon DB',
     ],
     'Containerization & Deployment': [
         'Docker',
