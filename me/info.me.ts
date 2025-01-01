@@ -50,8 +50,7 @@ export const projects: ProjectType[] = [
             'NeonDB',
             'PostgreSQL',
         ],
-        link: 'https://ieee-website-six.vercel.app',
-        upcoming: false,
+        upcoming: true,
     },
     {
         title: 'White Nest (E-Commerce)',
