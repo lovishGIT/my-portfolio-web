@@ -1,5 +1,8 @@
 import { ProjectType } from "@/types/project.type";
+import image from '@/me/myAvatar.png';
+import { StaticImageData } from "next/image";
 
+export const my_avatar: StaticImageData = image;
 export const name: string = 'Lovish Bansal';
 export const my_email: string = 'lovishbansal441@gmail.com';
 export const meta_description: string =
@@ -46,7 +49,7 @@ export const projects: ProjectType[] = [
             'PostgreSQL',
         ],
         link: 'https://ieee-website-six.vercel.app',
-        upcoming: true,
+        upcoming: false
     },
     {
         title: 'White Nest (E-Commerce)',
