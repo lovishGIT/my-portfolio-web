@@ -85,7 +85,7 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             {isMenuOpen && (
-                <div className="absolute top-full left-0 right-0 dark:bg-gray-800 shadow-md py-4 md:hidden">
+                <div className="absolute top-full left-0 right-0 bg-[#0e1628] shadow-md py-4 md:hidden">
                     <div className="flex flex-col items-center gap-4">
                         {socials.map(
                             (social: SocialType, index: number) => (

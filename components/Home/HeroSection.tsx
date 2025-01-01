@@ -1,5 +1,6 @@
 import React from 'react';
-import { name, My_Description } from '@/me/info.me';
+import { name, My_Description, my_image } from '@/me/info.me';
+import Image from 'next/image';
 
 export default function HeroSection() {
     return (
@@ -43,6 +44,15 @@ export default function HeroSection() {
                         shadow-[0_0_20px_rgba(168,85,247,0.3)]"
                     ></div>
                 </div>
+            </div>
+            <div className="block md:hidden">
+                <Image
+                    src={my_image}
+                    width={100}
+                    height={100}
+                    className="rounded-full shadow-[0_0_20px_rgba(236,72,153,0.3)]"
+                    alt="Hero Image"
+                />
             </div>
         </div>
     );
