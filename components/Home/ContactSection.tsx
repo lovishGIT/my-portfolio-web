@@ -55,7 +55,7 @@ const ContactSection = () => {
     };
     return (
         <section className="py-16 relative z-10 overflow-hidden">
-            <Card className="max-w-2xl mx-auto text-slate-200 border-slate-800 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-purple-500/10 relative z-10">
+            <Card className="max-w-2xl mx-auto bg-[#0e1628] text-slate-200 border-slate-800 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-purple-500/10 relative z-10">
                 <CardHeader className="space-y-1">
                     <div className="flex flex-col items-center mb-6">
                         <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 ring-4 ring-purple-500/30">
