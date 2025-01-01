@@ -3,7 +3,7 @@ export interface ProjectType {
     description: string;
     technologies: string[];
     link?: string;
-    upcoming?: boolean;
+    upcoming: boolean;
 }
 
 export type EmailResponse = {
