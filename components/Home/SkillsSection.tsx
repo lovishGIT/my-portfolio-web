@@ -20,7 +20,7 @@ const SkillsSection = () => {
                     ([category, skillList]) => (
                         <Card
                             key={category}
-                            className="bg-slate-900/50 border-slate-800 backdrop-blur-sm hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
+                            className="bg-[#0e1628] border-slate-800 backdrop-blur-sm hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
                         >
                             <CardHeader className="p-4 sm:p-6">
                                 <CardTitle className="text-lg sm:text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">

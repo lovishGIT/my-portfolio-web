@@ -69,7 +69,7 @@ const ProjectsSection = () => {
                 {visibleProjects.map((project, index) => (
                     <Card
                         key={index}
-                        className="bg-slate-900/50 border-slate-800 backdrop-blur-sm
+                        className="bg-[#0e1628] border-slate-800 backdrop-blur-sm
                         transition-all duration-300
                         hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)]
                         hover:-translate-y-1
