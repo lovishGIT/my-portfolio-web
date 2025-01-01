@@ -1,6 +1,6 @@
 import { ProjectType } from '@/types';
 import avatar from '@/me/myAvatar.png';
-import image from '@/me/myImage.png';
+import image from '@/me/MyImage.png';
 import { StaticImageData } from 'next/image';
 
 export const my_avatar: StaticImageData = avatar;
