@@ -90,13 +90,14 @@ export default function Navbar() {
                         {socials.map(
                             (social: SocialType, index: number) => (
                                 <Link
-                                    className="transition-all h-6 w-6 hover:scale-110 hover:text-purple-400"
+                                    className="transition-all h-6 flex justify-center gap-2 hover:scale-110 hover:text-purple-400"
                                     href={social.link}
                                     title={social.label}
                                     key={index}
                                     target="_blank"
                                 >
                                     {social.icon}
+                                    {social.label}
                                 </Link>
                             )
                         )}

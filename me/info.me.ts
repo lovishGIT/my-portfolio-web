@@ -3,23 +3,42 @@ import avatar from '@/me/myAvatar.png';
 import image from '@/me/MyImage.png';
 import { StaticImageData } from 'next/image';
 
-export const my_avatar: StaticImageData = avatar;
-export const my_image: StaticImageData = image;
+export const views: number = 0;
+
 export const name: string = 'Lovish Bansal';
-export const my_email: string = 'lovishbansal441@gmail.com';
+
 export const meta_description: string =
     'Professional Web Developer & A Tech Enthusiast';
+export const meta_keywords: string[] = [
+    'Software Development',
+    'Engineer',
+    'Developer',
+    'AI',
+    'Web 2',
+    'Web 3',
+    'Blockchain',
+    'Full Stack',
+    'MERN Stack',
+    'Next JS',
+    'React JS',
+    'Express JS',
+    'Node JS',
+    'TypeScript',
+];
 export const My_Description: string = `I live in Chandigarh! I'm a professional MERN Stack Web Developer & A Tech Enthusiast.`;
 
-export const linkedin_Url: string =
-    'https://www.linkedin.com/in/lovish2584-profile/';
+export const my_email: string = 'lovishbansal441@gmail.com';
+export const linkedin_Url: string = 'https://www.linkedin.com/in/lovish2584-profile/';
 export const github_Url: string = 'https://www.github.com/lovishGIT';
+
 export const resume_Url: string =
-    'https://docs.google.com/document/d/1vZwWGeuH0DnbxmoeB4IZDq_wyOMdocTzzOblaPrPdOc' +
-    '/export?format=pdf';
+'https://docs.google.com/document/d/1vZwWGeuH0DnbxmoeB4IZDq_wyOMdocTzzOblaPrPdOc' + '/export?format=pdf';
 
 export const AllProjectDocument: string | undefined =
     'https://silken-print-fd1.notion.site/Lovish-Bansal-Projects-144a7ba042a780f8bcafc7a6fab8bf94';
+
+export const my_avatar: StaticImageData = avatar;
+export const my_image: StaticImageData = image;
 
 export const projects: ProjectType[] = [
     {
@@ -61,6 +80,8 @@ export const projects: ProjectType[] = [
             'Prisma ORM',
             'PostgreSQL',
             'TypeScript',
+            'NodeMailer',
+            'Socket.io'
         ],
         link: 'https://github.com/Dumb-Crews/whiteNest',
         upcoming: true,

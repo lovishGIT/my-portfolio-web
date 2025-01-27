@@ -5,12 +5,26 @@ import { ThemeProvider } from '@/components/Global/theme-provider';
 import Navbar from '@/components/Global/Navbar';
 import ScrollProgressBar from '@/components/Global/ScrollProgressBar';
 import { ToastContainer } from 'react-toastify';
+import { meta_description, meta_keywords, name } from '@/me/info.me';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'Lovish Bansal',
-    description: 'Professional Web Developer & A Tech Enthusiast',
+    title: name,
+    description: meta_description,
+    creator: name,
+    keywords: meta_keywords,
+    alternates: {
+        canonical: 'https://my-portfolio-web-sepia.vercel.app',
+    },
+    openGraph: {
+        title: name,
+        description: meta_description,
+        type: 'profile',
+        images: [
+            { url: 'https://cdn.jsdelivr.net/gh/lovishGIT/my-portfolio-web/me/preview.png' },
+        ],
+    },
 };
 
 const AnimatedBackground = () => {
