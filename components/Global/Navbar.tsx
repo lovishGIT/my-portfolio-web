@@ -46,14 +46,9 @@ export default function Navbar() {
             const scrollPosition = window.scrollY;
             setHasScrolled(scrollPosition > 0);
         };
-
-        // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-
-        // Initial check
         handleScroll();
-
-        // Cleanup
+        
         return () =>
             window.removeEventListener('scroll', handleScroll);
     }, []);

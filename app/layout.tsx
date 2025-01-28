@@ -6,6 +6,7 @@ import Navbar from '@/components/Global/Navbar';
 import ScrollProgressBar from '@/components/Global/ScrollProgressBar';
 import { ToastContainer } from 'react-toastify';
 import { meta_description, meta_keywords, name } from '@/me/info.me';
+import Footer from '@/components/Global/Footer';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
@@ -65,6 +66,7 @@ export default function RootLayout({
                         <main className="relative z-10 pt-[10vh]">
                             {children}
                         </main>
+                        <Footer />
                     </div>
                     <ToastContainer
                         position="bottom-right"
