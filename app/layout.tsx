@@ -62,7 +62,7 @@ export default function RootLayout({
                     <div className="relative w-full px-4 sm:px-6 md:px-8 max-w-6xl mx-auto overflow-hidden">
                         <Navbar />
                         <AnimatedBackground />
-                        <main className="relative z-10">
+                        <main className="relative z-10 pt-[10vh]">
                             {children}
                         </main>
                     </div>
