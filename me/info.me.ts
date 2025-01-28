@@ -3,8 +3,6 @@ import avatar from '@/me/myAvatar.png';
 import image from '@/me/MyImage.png';
 import { StaticImageData } from 'next/image';
 
-export const views: number = 0;
-
 export const name: string = 'Lovish Bansal';
 
 export const meta_description: string =

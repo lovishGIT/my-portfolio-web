@@ -7,7 +7,6 @@ import ContactSection from '@/components/Home/ContactSection';
 
 export default function Page() {
     useEffect(() => {
-        document.title = 'Home | Lovish';
         fetch('/api/views', {
             method: 'POST',
         });

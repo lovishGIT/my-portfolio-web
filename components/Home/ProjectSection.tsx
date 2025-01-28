@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { AllProjectDocument, projects } from '@/me/info.me';
 import { RiNotionFill } from 'react-icons/ri';
+import { ProjectType } from '@/types';
 
 const gradient = [
     'from-blue-500 to-purple-500',
@@ -24,7 +25,7 @@ const ProjectsSection = () => {
     const initialProjectCount = 6;
     const hasMoreProjects = projects.length > initialProjectCount;
 
-    const visibleProjects = isExpanded
+    const visibleProjects: ProjectType[] = isExpanded
         ? projects
         : projects.slice(0, initialProjectCount);
 
@@ -39,6 +40,64 @@ const ProjectsSection = () => {
             }, 100);
         }
     };
+
+    const ProjectCard = ({ project, index }: {
+        project: ProjectType;
+        index: number;
+    }) => (
+        <Card
+            key={index}
+            className="bg-[#0e1628] border-slate-800 backdrop-blur-sm
+                    transition-all duration-300 flex flex-col h-full
+                    hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)]
+                    hover:-translate-y-1
+                    animate-in fade-in-0 slide-in-from-bottom-4"
+        >
+            <CardHeader className="p-4 sm:p-6">
+                <CardTitle
+                    className={`text-lg sm:text-xl text-transparent bg-clip-text bg-gradient-to-r ${
+                        gradient[index % 3]
+                    }`}
+                >
+                    {project.title}
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base text-slate-400 capitalize">
+                    {project.description
+                        .split(' ')
+                        .slice(0, 10)
+                        .join(' ')}
+                    {project.description.split(' ').length > 10 &&
+                        '...'}
+                </CardDescription>
+            </CardHeader>
+            <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0 flex flex-col flex-1">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                    {project.technologies.map((tech: string, index: number) => (
+                        <Badge
+                            key={index}
+                            variant="outline"
+                            className="text-xs sm:text-sm border-slate-700 bg-slate-800/50 text-white"
+                        >
+                            {tech}
+                        </Badge>
+                    ))}
+                </div>
+                <div className="mt-auto">
+                    <Button
+                        className={`w-full bg-gradient-to-r ${
+                            gradient[index % 3]
+                        } hover:opacity-90 transition-opacity text-sm sm:text-base`}
+                    >
+                        <a href={project.link} target="_blank">
+                            {project?.upcoming
+                                ? 'Upcoming'
+                                : 'View Project'}
+                        </a>
+                    </Button>
+                </div>
+            </CardContent>
+        </Card>
+    );
 
     return (
         <section className="py-8 sm:py-12 md:py-16 relative z-10 px-4 sm:px-6 md:px-0">
@@ -66,62 +125,10 @@ const ProjectsSection = () => {
                     )}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {visibleProjects.map((project, index) => (
-                    <Card
-                        key={index}
-                        className="bg-[#0e1628] border-slate-800 backdrop-blur-sm
-                        transition-all duration-300
-                        hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)]
-                        hover:-translate-y-1
-                        animate-in fade-in-0 slide-in-from-bottom-4"
-                    >
-                        <CardHeader className="p-4 sm:p-6">
-                            <CardTitle
-                                className={`text-lg sm:text-xl text-transparent bg-clip-text bg-gradient-to-r ${
-                                    gradient[index % 3]
-                                }`}
-                            >
-                                {project.title}
-                            </CardTitle>
-                            <CardDescription className="text-sm sm:text-base text-slate-400 capitalize">
-                                {project.description
-                                    .split(' ')
-                                    .slice(0, 10)
-                                    .join(' ')}
-                                {project.description.split(' ')
-                                    .length > 10 && '...'}
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                                {project.technologies.map(
-                                    (tech: String, index: number) => (
-                                        <Badge
-                                            key={index}
-                                            variant="outline"
-                                            className="text-xs sm:text-sm border-slate-700 bg-slate-800/50 text-white"
-                                        >
-                                            {tech}
-                                        </Badge>
-                                    )
-                                )}
-                            </div>
-                            <Button
-                                className={`w-full bg-gradient-to-r ${
-                                    gradient[index % 3]
-                                } hover:opacity-90 transition-opacity text-sm sm:text-base`}
-                            >
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                >
-                                    {project?.upcoming
-                                        ? `Upcoming`
-                                        : `View Project`}
-                                </a>
-                            </Button>
-                        </CardContent>
-                    </Card>
+                {visibleProjects
+                    .sort((a, _) => (a.upcoming ? 1 : -1))
+                    .map((project, index: number) => (
+                    <ProjectCard project={project} index={index} />
                 ))}
             </div>
 
