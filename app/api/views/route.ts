@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
+import fs from 'fs/promises';
+import path from 'path';
 
-let viewCount: number = 128;
+const filePath = path.join(process.cwd(), 'views.json');
 
 export async function GET() {
-    return NextResponse.json({ views: viewCount });
+    const data = await fs.readFile(filePath, 'utf-8');
+    const { views } = JSON.parse(data);
+    return NextResponse.json({ views });
 }
 
 export async function POST() {
-    viewCount += 1;
-    return NextResponse.json({ views: viewCount });
+    const data = await fs.readFile(filePath, 'utf-8');
+    const json = JSON.parse(data);
+    json.views += 1;
+
+    await fs.writeFile(filePath, JSON.stringify(json, null, 2));
+    return NextResponse.json({ views: json.views });
 }

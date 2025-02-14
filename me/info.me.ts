@@ -1,5 +1,4 @@
 import { ProjectType } from '@/types';
-import avatar from '@/me/myAvatar.png';
 import image from '@/me/MyImage.png';
 import { StaticImageData } from 'next/image';
 
@@ -30,12 +29,12 @@ export const linkedin_Url: string = 'https://www.linkedin.com/in/lovish2584-prof
 export const github_Url: string = 'https://www.github.com/lovishGIT';
 
 export const resume_Url: string =
-'https://docs.google.com/document/d/1vZwWGeuH0DnbxmoeB4IZDq_wyOMdocTzzOblaPrPdOc' + '/export?format=pdf';
+    'https://docs.google.com/document/d/1SYYjMdkjYfwireEyCdCj_j8-Ioyo9HYFIqHYHlGIKPc' +
+    '/export?format=pdf';
 
 export const AllProjectDocument: string | undefined =
     'https://silken-print-fd1.notion.site/Lovish-Bansal-Projects-144a7ba042a780f8bcafc7a6fab8bf94';
 
-export const my_avatar: StaticImageData = avatar;
 export const my_image: StaticImageData = image;
 
 export const projects: ProjectType[] = [

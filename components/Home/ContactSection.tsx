@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { User, Mail, MessageSquare, Send } from 'lucide-react';
-import { my_avatar, my_email } from '@/me/info.me';
+import { my_email, my_image } from '@/me/info.me';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
 import { EmailResponse } from '@/types';
@@ -60,7 +60,7 @@ const ContactSection = () => {
                     <div className="flex flex-col items-center mb-6">
                         <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 ring-4 ring-purple-500/30">
                             <Image
-                                src={my_avatar}
+                                src={my_image}
                                 alt="Contact"
                                 className="w-full h-full object-cover"
                                 fill={true}

@@ -1,5 +1,3 @@
-// app/api/sendEmail/route.js
-
 export async function POST(req: Request) {
     const { email, name, message } = await req.json();
 
