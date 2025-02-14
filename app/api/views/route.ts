@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 
-const filePath = path.join(process.cwd(), 'views.json');
+const filePath = path.join(process.cwd(), '/me/views.json');
 
 export async function GET() {
     const data = await fs.readFile(filePath, 'utf-8');
