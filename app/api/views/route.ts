@@ -1,20 +1,25 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { Redis } from '@upstash/redis'
 
-const filePath = path.join(process.cwd(), '/me/views.json');
+const redis = new Redis({
+    url: process.env.NEXT_SECRET_UPSTASH_REDIS_URL,
+    token: process.env.NEXT_SECRET_UPSTASH_REDIS_TOKEN,
+});
 
 export async function GET() {
-    const data = await fs.readFile(filePath, 'utf-8');
-    const { views } = JSON.parse(data);
+    let views = await redis.get('views');
+    if (typeof views !== 'number') {
+        await redis.set('views', 0);
+        views = 0;
+    }
     return NextResponse.json({ views });
 }
 
 export async function POST() {
-    const data = await fs.readFile(filePath, 'utf-8');
-    const json = JSON.parse(data);
-    json.views += 1;
-
-    await fs.writeFile(filePath, JSON.stringify(json, null, 2));
-    return NextResponse.json({ views: json.views });
+    let views = await redis.incr('views');
+    if (typeof views !== 'number') {
+        await redis.set('views', 0);
+        views = 0;
+    }
+    return NextResponse.json({ views: views });
 }
