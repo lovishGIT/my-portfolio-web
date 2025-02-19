@@ -21,5 +21,5 @@ export async function POST() {
         await redis.set('views', 0);
         views = 0;
     }
-    return NextResponse.json({ views: views });
+    return NextResponse.json({ views });
 }

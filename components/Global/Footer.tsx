@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,7 +10,7 @@ import {
     github_Url,
     linkedin_Url,
 } from '@/me/info.me';
-import ViewCounter from './profileViews';
+import Views from './profileViews';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -38,7 +37,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <ViewCounter className="order-3 md:order-2" />
+                    <Views className="order-3 md:order-2" />
 
                     <div className="flex gap-4 order-2 md:order-3">
                         <Link
