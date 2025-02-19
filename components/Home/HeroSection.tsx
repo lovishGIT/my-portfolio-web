@@ -46,6 +46,7 @@ export default function HeroSection() {
                 </div>
             </div>
             <div className="block md:hidden">
+                <span className='sr-only'>Hero Image</span>
                 <Image
                     src={my_image}
                     width={100}

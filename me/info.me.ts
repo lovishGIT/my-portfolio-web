@@ -7,6 +7,8 @@ export const name: string = 'Lovish Bansal';
 export const meta_description: string =
     'Professional Web Developer & A Tech Enthusiast';
 export const meta_keywords: string[] = [
+    'Lovish Bansal',
+    'Web Developer',
     'Software Development',
     'Engineer',
     'Developer',

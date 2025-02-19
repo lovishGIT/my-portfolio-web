@@ -61,7 +61,7 @@ const ContactSection = () => {
                         <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 ring-4 ring-purple-500/30">
                             <Image
                                 src={my_image}
-                                alt="Contact"
+                                alt="Avatar Image"
                                 className="w-full h-full object-cover"
                                 fill={true}
                             />
