@@ -48,6 +48,9 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    fetch('/api/views', {
+        method: 'POST',
+    });
     return (
         <html lang="en">
             <body

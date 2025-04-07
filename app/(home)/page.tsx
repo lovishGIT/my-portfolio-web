@@ -5,9 +5,6 @@ import ProjectsSection from '@/components/Home/ProjectSection';
 import ContactSection from '@/components/Home/ContactSection';
 
 export default async function Page() {
-    fetch('/api/views', {
-        method: 'POST',
-    });
 
     return (
         <>

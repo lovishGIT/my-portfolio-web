@@ -9,8 +9,8 @@ const redis = new Redis({
 export async function GET() {
     let views = await redis.get('views');
     if (typeof views !== 'number') {
-        await redis.set('views', 0);
-        views = 0;
+        await redis.set('views', 200);
+        views = 200;
     }
     return NextResponse.json({ views });
 }
@@ -18,8 +18,8 @@ export async function GET() {
 export async function POST() {
     let views = await redis.incr('views');
     if (typeof views !== 'number') {
-        await redis.set('views', 0);
-        views = 0;
+        await redis.set('views', 200);
+        views = 200;
     }
     return NextResponse.json({ views });
 }

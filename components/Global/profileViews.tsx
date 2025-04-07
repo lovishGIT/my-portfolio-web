@@ -27,7 +27,7 @@ const ViewCounter = ({ className = '' }: ViewCounterProps) => {
     return (
         <div className={`flex items-center gap-2 ${className}`}>
             <span className="text-slate-400">
-                👁️ {views.toLocaleString()} views
+                👁️ {views.toLocaleString() || 200} views
             </span>
         </div>
     );

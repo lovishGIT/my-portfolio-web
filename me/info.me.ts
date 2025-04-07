@@ -24,7 +24,7 @@ export const meta_keywords: string[] = [
     'Node JS',
     'TypeScript',
 ];
-export const My_Description: string = `I live in Chandigarh! I'm a professional MERN Stack Web Developer & A Tech Enthusiast.`;
+export const My_Description: string = `I live in Chandigarh! I'm a professional Full Stack Web Developer & A Tech Enthusiast.`;
 
 export const my_email: string = 'lovishbansal441@gmail.com';
 export const linkedin_Url: string = 'https://www.linkedin.com/in/lovish2584-profile/';
@@ -32,7 +32,7 @@ export const github_Url: string = 'https://www.github.com/lovishGIT';
 
 export const resume_Url: string =
     'https://docs.google.com/document/d/1SYYjMdkjYfwireEyCdCj_j8-Ioyo9HYFIqHYHlGIKPc' +
-    '/export?format=pdf';
+    '/export?format=pdf&cros_files=false&tab=t.0';
 
 export const AllProjectDocument: string | undefined =
     'https://silken-print-fd1.notion.site/Lovish-Bansal-Projects-144a7ba042a780f8bcafc7a6fab8bf94';
